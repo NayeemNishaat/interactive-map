@@ -1,13 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
+import Modal from "./component/Modal/Modal";
+import BackDrop from "./component/BackDrop/BackDrop";
 import classes from "./App.module.css";
 
 const App = () => {
-	// const clickHandler = () => {
-	// 	alert(`clicked!`);
-	// };
+	const [state, setState] = useState({ clicked: false });
+
+	const [active, setActive] = useState(1);
+
+	const changeTabHandler = (id) => {
+		setActive(id);
+	};
+
+	const [country] = useState({
+		1: `Eastern Province`,
+		2: `Northen Borders`,
+		3: `EL Gouf`,
+		4: `Najran`,
+		5: `Asir`,
+		6: `Jizaan`,
+		7: `Tabuk`,
+		8: `Madinah`,
+		9: `Mecca-Jeddah`,
+		10: `Riyahd`,
+		11: `Qusaim`,
+		12: `Ha'il`,
+		13: `Bahah`
+	});
+
+	const [current, setCurrent] = useState(``);
+
+	const clickHandler = (key) => {
+		setState((prevState) => ({ clicked: !prevState.clicked }));
+		const current = country[key];
+		setCurrent(current);
+	};
 
 	return (
 		<div className={classes.map}>
+			<Modal
+				open={state.clicked}
+				clicked={clickHandler}
+				info={current}
+				id={active}
+				change={changeTabHandler}
+			/>
+			<BackDrop
+				open={state.clicked}
+				clicked={clickHandler}
+				change={changeTabHandler}
+			/>
+
 			<svg
 				viewBox="0 0 3115 2566"
 				fill="none"
@@ -20,7 +63,8 @@ const App = () => {
 					stroke="#808080"
 					strokeLinecap="round"
 					strokeLinejoin="round"
-					// id={classes.a}
+					onClick={clickHandler.bind(this, 1)}
+					id="1"
 				>
 					<title>Eastern Province, Jubail, Dammam, Khobar</title>
 				</path>
@@ -31,6 +75,8 @@ const App = () => {
 					stroke="#808080"
 					strokeLinecap="round"
 					strokeLinejoin="round"
+					onClick={clickHandler.bind(this, 2)}
+					id="2"
 				>
 					<title>Northen Borders</title>
 				</path>
@@ -41,6 +87,8 @@ const App = () => {
 					stroke="#808080"
 					strokeLinecap="round"
 					strokeLinejoin="round"
+					onClick={clickHandler.bind(this, 3)}
+					id="3"
 				>
 					<title>EL Gouf</title>
 				</path>
@@ -51,6 +99,8 @@ const App = () => {
 					stroke="#808080"
 					strokeLinecap="round"
 					strokeLinejoin="round"
+					onClick={clickHandler.bind(this, 4)}
+					id="4"
 				>
 					<title>Najran</title>
 				</path>
@@ -61,6 +111,8 @@ const App = () => {
 					stroke="#808080"
 					strokeLinecap="round"
 					strokeLinejoin="round"
+					onClick={clickHandler.bind(this, 5)}
+					id="5"
 				>
 					<title>Asir</title>
 				</path>
@@ -71,6 +123,8 @@ const App = () => {
 					stroke="#808080"
 					strokeLinecap="round"
 					strokeLinejoin="round"
+					onClick={clickHandler.bind(this, 6)}
+					id="6"
 				>
 					<title>Jizaan</title>
 				</path>
@@ -81,6 +135,8 @@ const App = () => {
 					stroke="#808080"
 					strokeLinecap="round"
 					strokeLinejoin="round"
+					onClick={clickHandler.bind(this, 7)}
+					id="7"
 				>
 					<title>Tabuk</title>
 				</path>
@@ -91,6 +147,8 @@ const App = () => {
 					stroke="#808080"
 					strokeLinecap="round"
 					strokeLinejoin="round"
+					onClick={clickHandler.bind(this, 8)}
+					id="8"
 				>
 					<title>Madinah</title>
 				</path>
@@ -101,8 +159,10 @@ const App = () => {
 					stroke="#808080"
 					strokeLinecap="round"
 					strokeLinejoin="round"
+					onClick={clickHandler.bind(this, 9)}
+					id="9"
 				>
-					<title>Mecca - Jeddah</title>
+					<title>Mecca-Jeddah</title>
 				</path>
 
 				<path
@@ -111,6 +171,8 @@ const App = () => {
 					stroke="#808080"
 					strokeLinecap="round"
 					strokeLinejoin="round"
+					onClick={clickHandler.bind(this, 10)}
+					id="10"
 				>
 					<title>Riyahd</title>
 				</path>
@@ -121,6 +183,8 @@ const App = () => {
 					stroke="#808080"
 					strokeLinecap="round"
 					strokeLinejoin="round"
+					onClick={clickHandler.bind(this, 11)}
+					id="11"
 				>
 					<title>Qusaim</title>
 				</path>
@@ -131,6 +195,8 @@ const App = () => {
 					stroke="#808080"
 					strokeLinecap="round"
 					strokeLinejoin="round"
+					onClick={clickHandler.bind(this, 12)}
+					id="12"
 				>
 					<title>Ha'il</title>
 				</path>
@@ -141,6 +207,8 @@ const App = () => {
 					stroke="#808080"
 					strokeLinecap="round"
 					strokeLinejoin="round"
+					onClick={clickHandler.bind(this, 13)}
+					id="13"
 				>
 					<title>Bahah</title>
 				</path>

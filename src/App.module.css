@@ -1,5 +1,8 @@
 .map {
-	text-align: center;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	padding: 2rem;
 }
 
@@ -7,17 +10,50 @@ path {
 	stroke: orangered;
 	stroke-width: 0.5rem;
 	transition: all 0.5s;
-	/* fill: deeppink; */
-	/* transition: fill 0.3s; */
+	cursor: pointer;
 }
 
 path:hover {
-	/* stroke-width: 1.2rem; */
 	fill: springgreen;
-	/* transform: translateX(1.5rem); */
 	filter: drop-shadow(1rem 1rem 2rem rgb(0 0 0 / 0.9));
 }
 
 .svg {
 	width: 55vw;
+}
+
+@media only screen and (max-width: 1150px) {
+	.svg {
+		width: 60vw;
+	}
+}
+
+@media only screen and (max-width: 1000px) {
+	.svg {
+		width: 70vw;
+	}
+}
+
+@media only screen and (max-width: 850px) {
+	.svg {
+		width: 80vw;
+	}
+}
+
+@media only screen and (max-width: 700px) {
+	.svg {
+		width: 85vw;
+	}
+}
+
+@media only screen and (max-width: 700px) {
+	.svg {
+		width: 85vw;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.svg {
+		width: 95vw;
+	}
 }
